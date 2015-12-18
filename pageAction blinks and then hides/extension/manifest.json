@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "pageAction blinks and then hides",
+  "version": "0.0.0.0",
+
+  "permissions": [
+    "webRequest",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "page_action": {}
+}
