@@ -33,19 +33,25 @@ window.timeoutError = () => {
 
 window.storageError = () => {
 
-  console.warn('BG: storage error.');
+  console.warn('BG: throwing storage error.');
   chrome.storage.sync.get(
     function() {throw new Error('BG: From storage!')}
   );
 
 };
 
-window.timestorageError = () => {
+window.storagetimeError = () => {
 
-  console.warn('BG: storage + timeout.');
+  console.warn('BG: throwing storage + timeout.');
   chrome.storage.sync.get(
     function() { setTimeout( function(){throw new Error('BG: From storage /w Timeout!')}, 0); }
   );
+}
+
+window.deferCb = (cb) => {
+
+  console.warn('BG: throwing storage + timeout.');
+  setTimeout( cb, 0 );
 
 };
 

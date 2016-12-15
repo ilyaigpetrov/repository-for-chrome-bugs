@@ -37,8 +37,33 @@ chrome.runtime.getBackgroundPage( function(backgroundPage) {
   document.getElementById('bg-timechrome-btn').onclick = () => {
 
     backgroundPage.console.log('Popup: storage + timeout');
-    backgroundPage.timestorageError();
+    backgroundPage.storagetimeError();
 
   };
+  
+  document.getElementById('pop-timeout-btn').onclick = () => {
+
+    setTimeout( () => {
+      backgroundPage.console.log('Popup: timeout + storage');
+      backgroundPage.storageError();
+    }, 0)
+
+  };
+
+  document.getElementById('pop-timethrow-btn').onclick = () => {
+
+    setTimeout( () => {
+      backgroundPage.console.log('Popup: timeout + throw');
+      backgroundPage.throwError();
+    }, 0)
+
+  };
+  
+  document.getElementById('pop-defer-btn').onclick = () => {
+    deferCb(() => {
+      backgroundPage.throwError();
+    });
+  };
+  
 
 });
